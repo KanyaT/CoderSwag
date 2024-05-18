@@ -6,7 +6,7 @@
     android:layout_height="180dp">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/categoryImageView"
         android:layout_width="0dp"
         android:layout_height="180dp"
         android:scaleType="centerCrop"
@@ -19,7 +19,7 @@
         tools:srcCompat="@drawable/hatimage" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/categoryTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -29,7 +29,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/categoryImageView"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="HATS" />
 </androidx.constraintlayout.widget.ConstraintLayout>
