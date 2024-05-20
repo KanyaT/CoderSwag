@@ -6,6 +6,7 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
+import android.widget.Toast
 import com.example.coderswag.Adapter.CategoryAdapter
 import com.example.coderswag.R
 import com.example.coderswag.Services.DataService
@@ -22,6 +23,11 @@ class MainActivity : AppCompatActivity() {
         val categoryListView = findViewById<ListView>(R.id.categoryListview)
 
         categoryListView.adapter = adapter
+
+        categoryListView.setOnItemClickListener { adapterView, view, i, l ->
+            val category = DataService.categories[i]
+            Toast.makeText(this, "You have given ${category.title}",Toast.LENGTH_SHORT).show()
+        }
 
     }
 
