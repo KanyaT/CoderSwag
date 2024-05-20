@@ -7,27 +7,29 @@ import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.coderswag.Adapter.CategoryAdapter
+import com.example.coderswag.Adapter.CategoryRecycleAdapter
 import com.example.coderswag.R
 import com.example.coderswag.Services.DataService
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var adapter : CategoryAdapter
+    lateinit var adapter : CategoryRecycleAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        adapter = CategoryAdapter(this,DataService.categories)
+        adapter = CategoryRecycleAdapter(this, DataService.categories)
 
-        val categoryListView = findViewById<ListView>(R.id.categoryListview)
+        val categoryListView = findViewById<RecyclerView>(R.id.categoryListview)
 
         categoryListView.adapter = adapter
 
-        categoryListView.setOnItemClickListener { adapterView, view, i, l ->
-            val category = DataService.categories[i]
-            Toast.makeText(this, "You have given ${category.title}",Toast.LENGTH_SHORT).show()
-        }
+        val layoutManager = LinearLayoutManager(this)
+        categoryListView.layoutManager = layoutManager
+        categoryListView.setHasFixedSize(true)
 
     }
 
